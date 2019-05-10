@@ -61,16 +61,15 @@
 
 // links = document.querySelectorAll();
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 class TabLink {
   constructor(element) {
-    // Assign this.element to the passed in DOM element
-    // this.element;
+  this.element = element;
     
     // Get the custom data attribute on the Link
-    // this.data;
+    this.data = this.element.querySelector(`.content[data-tab='${this.links.dataset.tab}']`)
     
     // Using the custom data attribute get the associated Item element
     // this.itemElement;
@@ -104,7 +103,8 @@ class TabItem {
 
   select() {
     // Select all ".tabs-item" elements from the DOM
-   const items = document.querySelectorAll(".tabs-item");
+  const items = document.querySelectorAll(`.tab-items[data-tab="${this.element.dataset.tab}"]`);
+  
 
     // Remove the class "tabs-item-selected" from each element
     
@@ -122,7 +122,10 @@ class TabItem {
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 
 */
-let links = document.querySelectorAll(".tabs-link").forEach( link =>
-new TabLink(link));
+ links = document.querySelectorAll(".tabs-link").forEach( link => {
+ new TabLink(link);
+});
+
+
 
 

@@ -103,13 +103,16 @@ class TabItem {
 
   select() {
     // Select all ".tabs-item" elements from the DOM
-  const items = document.querySelectorAll(`.tab-items[data-tab="${this.element.dataset.tab}"]`);
+  const items = document.querySelectorAll(".tab-items");
   
 
     // Remove the class "tabs-item-selected" from each element
+    this.items.forEach((item) => {
+      item.classList.remove("tabs-item-selected");
+    });
     
     // Add a class named "tabs-item-selected" to this element
-    //this.element;
+    this.element.classList.add("tabs-item-selected");
   }
 }
 
